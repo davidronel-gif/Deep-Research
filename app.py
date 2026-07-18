@@ -5,7 +5,15 @@
 import json
 import streamlit as st
 import requests
-import sseclient
+import importlib
+from types import ModuleType
+
+# sseclient can be installed as `sseclient-py`. Try to import it dynamically
+# and fall back to None so static analyzers don't error at runtime.
+try:
+    sseclient = importlib.import_module("sseclient")  # type: ModuleType
+except Exception:
+    sseclient = None
 
 API_URL   = "http://localhost:8000/research"
 MOCK_MODE = False  # set True at hour 0, flip to False at hour 5
@@ -104,11 +112,21 @@ if run and query:
         render_contradictions(MOCK_RESULT["contradictions"])
 
     else:
+        if sseclient is None:
+            st.error("Missing dependency: please install sseclient (pip install sseclient-py) to stream events from the API.")
+            # mark all agents as not started
+            for a in AGENTS:
+                step_slots[a].markdown(f"⬜ `{a}`")
+            report_slot.markdown("")
+            contradiction_slot.markdown("")
+            # skip attempting the request
+            render_contradictions([])
+            st.stop()
         data   = {"query": query}
         files  = {"pdf": pdf.getvalue()} if pdf else {}
         final_contradictions = []
 
-        with requests.post(API_URL, data=data, files=files, stream=True) as r:
+        with requests.post(API_URL, data=data, files=files, stream=True, timeout=300) as r:
             client = sseclient.SSEClient(r)
             for event in client.events():
                 payload = json.loads(event.data)

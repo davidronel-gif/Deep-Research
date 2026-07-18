@@ -1,0 +1,28 @@
+{
+  "total": 0,
+  "maximum": 9,
+  "percentage": 0.0,
+  "cases": [
+    {
+      "id": "tc_01",
+      "query": "What accuracy does GPT-4 achieve on the MMLU benchmark?",
+      "score": 0,
+      "max": 3,
+      "elapsed": 73.1
+    },
+    {
+      "id": "tc_03",
+      "query": "What are the energy consumption differences between training GPT-3 and GPT-4?",
+      "score": 0,
+      "max": 3,
+      "elapsed": 3.6
+    },
+    {
+      "id": "tc_04",
+      "query": "How does retrieval-augmented generation compare to fine-tuning for domain adaptation?",
+      "score": 0,
+      "max": 3,
+      "elapsed": 4.6
+    }
+  ]
+}
