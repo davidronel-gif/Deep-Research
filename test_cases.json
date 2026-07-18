@@ -1,0 +1,76 @@
+{
+  "test_cases": [
+    {
+      "id": "tc_01",
+      "query": "What accuracy does GPT-4 achieve on the MMLU benchmark?",
+      "domain": "LLM benchmarks",
+      "expected": {
+        "min_sources": 3,
+        "must_contain_claims": ["MMLU", "accuracy", "GPT-4"],
+        "expect_contradiction": true,
+        "contradiction_note": "Different papers report 86.4% vs 90% depending on evaluation setup"
+      },
+      "good_demo": true
+    },
+    {
+      "id": "tc_02",
+      "query": "Does chain-of-thought prompting improve reasoning in large language models?",
+      "domain": "Prompting techniques",
+      "expected": {
+        "min_sources": 3,
+        "must_contain_claims": ["chain-of-thought", "reasoning", "performance"],
+        "expect_contradiction": false,
+        "contradiction_note": "Broad consensus exists — good test for zero-contradiction path"
+      },
+      "good_demo": false
+    },
+    {
+      "id": "tc_03",
+      "query": "What are the energy consumption differences between training GPT-3 and GPT-4?",
+      "domain": "AI sustainability",
+      "expected": {
+        "min_sources": 2,
+        "must_contain_claims": ["energy", "carbon", "training cost"],
+        "expect_contradiction": true,
+        "contradiction_note": "Estimates vary widely due to undisclosed OpenAI figures"
+      },
+      "good_demo": true
+    },
+    {
+      "id": "tc_04",
+      "query": "How does retrieval-augmented generation compare to fine-tuning for domain adaptation?",
+      "domain": "RAG vs fine-tuning",
+      "expected": {
+        "min_sources": 4,
+        "must_contain_claims": ["RAG", "fine-tuning", "domain", "performance"],
+        "expect_contradiction": true,
+        "contradiction_note": "Papers disagree on which approach generalises better"
+      },
+      "good_demo": true
+    },
+    {
+      "id": "tc_05",
+      "query": "What is the parameter count of Llama 2 and how does it compare to GPT-3?",
+      "domain": "Model architecture",
+      "expected": {
+        "min_sources": 2,
+        "must_contain_claims": ["parameters", "Llama 2", "GPT-3"],
+        "expect_contradiction": false,
+        "contradiction_note": "Parameter counts are published — tests factual retrieval accuracy"
+      },
+      "good_demo": false
+    }
+  ],
+
+  "eval_scoring": {
+    "per_test_case": {
+      "source_coverage":        "1 point — at least min_sources retrieved",
+      "claim_extraction":       "1 point — all must_contain_claims appear in extracted claims",
+      "contradiction_accuracy": "1 point — correctly detected or correctly absent",
+      "report_quality":         "1 point — LLM judge scores report coherence >= 7/10"
+    },
+    "max_score": 20,
+    "pass_threshold": 14,
+    "llm_judge_prompt": "Rate this research report on coherence, factual accuracy, and citation quality from 1-10. Return JSON: {\"score\": N, \"reason\": \"one sentence\"}"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "api_contract": {
+    "version": "1.0",
+    "agreed_at": "hour_1",
+    "base_url": "http://localhost:8000",
+
+    "endpoints": {
+      "POST /research": {
+        "content_type": "multipart/form-data",
+        "request": {
+          "query": "string — the research question",
+          "pdf":   "binary | null — optional uploaded PDF"
+        },
+        "response": {
+          "type": "SSE stream (text/event-stream)",
+          "event_shape": {
+            "status": "retriever | pdf_chunker | analyst | critic | report_builder | complete | error",
+            "state":  "partial ResearchState — fields present depend on which agent just ran"
+          }
+        }
+      },
+      "GET /health": {
+        "response": { "status": "ok" }
+      }
+    },
+
+    "sse_event_sequence": [
+      { "status": "retriever",      "state": { "sources": "list[Source] — web results only, no raw_text" } },
+      { "status": "pdf_chunker",    "state": { "sources": "list[Source] — web + pdf merged, no raw_text" } },
+      { "status": "analyst",        "state": { "sources": "list[Source] — with summary and claims filled" } },
+      { "status": "critic",         "state": { "contradictions": "list[Contradiction]" } },
+      { "status": "report_builder", "state": { "report_markdown": "string", "status": "complete" } }
+    ],
+
+    "types": {
+      "Source": {
+        "id":         "string — e.g. web_0, pdf_1",
+        "origin":     "web | pdf",
+        "url":        "string",
+        "title":      "string",
+        "summary":    "string — filled after analyst runs",
+        "claims":     "list[string] — filled after analyst runs"
+      },
+      "Contradiction": {
+        "source_a_id":  "string",
+        "source_b_id":  "string",
+        "claim_a":      "string",
+        "claim_b":      "string",
+        "confidence":   "float 0.0–1.0",
+        "explanation":  "string — one sentence"
+      }
+    },
+
+    "notes": [
+      "raw_text is stripped from SSE events to keep payload size manageable",
+      "pdf_bytes is never sent in SSE events",
+      "If no PDF is uploaded, pdf_chunker emits no state update and sources are unchanged",
+      "Confidence threshold for contradictions is 0.75 — adjust in critic.py if needed"
+    ]
+  }
+}
