@@ -37,11 +37,24 @@ async def research(
         "error": None,
     }
 
+    #def stream():
+     #   try:
+      #      for event in graph.stream(initial, stream_mode="updates"):
+       #         node, state_update = next(iter(event.items()))
+        #        # Don't stream raw_text — too large
+         #       safe_update = {k: v for k, v in state_update.items() if k != "pdf_bytes"}
+          #      if "sources" in safe_update:
+           #         safe_update["sources"] = [
+            #            {k: v for k, v in s.items() if k != "raw_text"}
+             #           for s in safe_update["sources"]
+              #      ]
+               # yield f"data: {json.dumps({'status': node, 'state': safe_update})}\n\n"
+       # except Exception as e:
+        #    yield f"data: {json.dumps({'status': 'error', 'error': str(e)})}\n\n"
     def stream():
         try:
             for event in graph.stream(initial, stream_mode="updates"):
                 node, state_update = next(iter(event.items()))
-                # Don't stream raw_text — too large
                 safe_update = {k: v for k, v in state_update.items() if k != "pdf_bytes"}
                 if "sources" in safe_update:
                     safe_update["sources"] = [
