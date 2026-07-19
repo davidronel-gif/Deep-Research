@@ -1,0 +1,215 @@
+[
+  {
+    "query": "What accuracy does GPT-4 achieve on the MMLU benchmark?",
+    "elapsed": 161.236328125,
+    "sources": [
+      {
+        "id": "web_0",
+        "origin": "web",
+        "url": "https://www.researchgate.net/figure/The-accuracy-of-ChatGPT-and-GPT-4-on-the-MMLU-and-GAT-benchmarks-MMLU-results-are-taken_tbl6_378633718",
+        "title": "The accuracy of ChatGPT and GPT-4 on the MMLU and GAT benchmarks ...",
+        "summary": "A study evaluates the performance of ChatGPT models on the MMLU and GAT benchmarks. ChatGPT-4 achieved an overall average accuracy of 64% on these benchmarks.",
+        "claims": [
+          "ChatGPT-4 achieved an overall average accuracy of 64% on the MMLU and GAT benchmarks",
+          "MMLU and GAT benchmarks pose a significant challenge to ChatGPT models"
+        ]
+      },
+      {
+        "id": "web_1",
+        "origin": "web",
+        "url": "https://www.reddit.com/r/MachineLearning/comments/13e1rf9/d_since_google_buried_the_mmlu_benchmark_scores",
+        "title": "[D] Since Google buried the MMLU benchmark scores in the Appendix of the PALM 2 technical report, here it is vs GPT-4 and other LLMs",
+        "summary": "The post compares MMLU benchmark scores across multiple language models, showing GPT-4 achieved 86.4%, Flan-PaLM 2 (L) 81.2%, PaLM 2 (L) 78.3%, and other models scoring lower. A top comment provides updated benchmarks from January 25, 2025, with Llama 3.1 at 88.6%, DeepSeek V3 at 88.5%, and Claude-3.5 at 88.3%.",
+        "claims": [
+          "GPT-4 achieved 86.4% on the MMLU benchmark (5-shot)",
+          "Flan-PaLM 2 (L) scored 81.2% on MMLU (5-shot)",
+          "As of January 25, 2025, Llama 3.1 achieved 88.6% on MMLU benchmarks"
+        ]
+      },
+      {
+        "id": "web_2",
+        "origin": "web",
+        "url": "https://www.rdworldonline.com/openai-claims-gpt-4-1-sets-new-90-standard-in-mmlu-reasoning-benchmark",
+        "title": "OpenAI says GPT-4.1 sets new 90%+ standard in MMLU reasoning benchmark",
+        "summary": "OpenAI unveiled GPT-4.1, an optimized successor to the experimental GPT-4.5, which achieves a 90.2% score on the MMLU benchmark. The company plans to retire API access to GPT-4.5 on July 14, 2025, and positions GPT-4.1 as superior in coding, instruction following, and long context capabilities with a 1-million-token context window.",
+        "claims": [
+          "GPT-4.1 achieved 90.2% accuracy on the MMLU benchmark",
+          "OpenAI will retire API access to GPT-4.5 on July 14, 2025",
+          "GPT-4.1 achieved 55% accuracy on the SWE-Bench verified benchmark, compared to GPT-4o's 33%",
+          "GPT-4.1 scored 66.3% on the GPQA Diamond tier benchmark",
+          "GPT-4.1 has a 1-million-token context window, an eight-fold increase over GPT-4o's 128,000-token limit"
+        ]
+      },
+      {
+        "id": "web_3",
+        "origin": "web",
+        "url": "https://www.narev.ai/blog/mmlu-doesnt-matter",
+        "title": "GPT-4o vs Claude Opus - MMLU Scores vs. Actual API Costs - Narev Docs",
+        "summary": "GPT-4o's MMLU-Pro score varies by 13 percentage points across different measurement sources, while the top three models on Kaggle's leaderboard differ by only 1%, suggesting benchmark scores are unreliable for model comparison without considering cost context and real-world performance.",
+        "claims": [
+          "GPT-4o's MMLU-Pro score is 72.6% according to the original 2024 Arxiv paper",
+          "According to LLM Stats, GPT-4o's MMLU-Pro score is 85.7%",
+          "On Kaggle's Open Benchmarks leaderboard, Claude Opus 4.1 (2025-08-05) scores 87.9%, GPT-5 (2025-08-07) scores 87.1%, and Claude Opus 4 (2025-05-14) scores 86.9%"
+        ]
+      },
+      {
+        "id": "web_4",
+        "origin": "web",
+        "url": "https://galileo.ai/blog/mmlu-benchmark-ai-language-testing",
+        "title": "MMLU Benchmark: Testing AI Language Models",
+        "summary": "The MMLU benchmark evaluates AI language models across 57 subjects using 15,908 multiple-choice questions. Current top models achieve approximately 88% accuracy, approaching the human expert baseline of 89.8%, though the benchmark shows a documented 6.49% error rate and 13 percentage points of reproducibility variance.",
+        "claims": [
+          "MMLU measures AI systems across 57 diverse subjects with 15,908 total questions",
+          "Top models now achieve approximately 88% accuracy with a human expert baseline of 89.8%",
+          "MMLU has a documented 6.49% error rate and 13 percentage points of reproducibility variance"
+        ]
+      }
+    ],
+    "contradictions": [
+      {
+        "source_a_id": "web_0",
+        "source_b_id": "web_1",
+        "claim_a": "ChatGPT-4 achieved an overall average accuracy of 64% on the MMLU and GAT benchmarks",
+        "claim_b": "GPT-4 achieved 86.4% on the MMLU benchmark (5-shot)",
+        "confidence": 0.95,
+        "explanation": "Claim A states ChatGPT-4 achieved 64% overall average accuracy on MMLU and GAT benchmarks combined, while Claim B states GPT-4 achieved 86.4% on MMLU alone (5-shot), which cannot both be true as the combined average cannot exceed the individual MMLU score."
+      },
+      {
+        "source_a_id": "web_0",
+        "source_b_id": "web_4",
+        "claim_a": "ChatGPT-4 achieved an overall average accuracy of 64% on the MMLU and GAT benchmarks",
+        "claim_b": "Top models now achieve approximately 88% accuracy with a human expert baseline of 89.8%",
+        "confidence": 0.92,
+        "explanation": "Claim A states ChatGPT-4 achieved 64% accuracy on MMLU/GAT benchmarks while Claim B states top models now achieve 88% accuracy on MMLU, and these cannot both be true if they refer to the same model and time period on the same benchmark."
+      },
+      {
+        "source_a_id": "web_2",
+        "source_b_id": "web_3",
+        "claim_a": "GPT-4.1 achieved 90.2% accuracy on the MMLU benchmark",
+        "claim_b": "On Kaggle's Open Benchmarks leaderboard, Claude Opus 4.1 (2025-08-05) scores 87.9%, GPT-5 (2025-08-07) scores 87.1%, and Claude Opus 4 (2025-05-14) scores 86.9%",
+        "confidence": 0.95,
+        "explanation": "Claim A states GPT-4.1 achieved 90.2% on MMLU, while Claim B shows GPT-5 (a later model) scored only 87.1% on the same benchmark, which is contradictory since later models should not perform significantly worse on the same benchmark."
+      },
+      {
+        "source_a_id": "web_2",
+        "source_b_id": "web_4",
+        "claim_a": "GPT-4.1 achieved 90.2% accuracy on the MMLU benchmark",
+        "claim_b": "Top models now achieve approximately 88% accuracy with a human expert baseline of 89.8%",
+        "confidence": 0.85,
+        "explanation": "Claim A states GPT-4.1 achieved 90.2% accuracy on MMLU, while Claim B states top models achieve approximately 88% accuracy, which are directly contradictory performance figures for the same benchmark at what appears to be the same time period."
+      }
+    ],
+    "report_markdown": "# GPT-4 Performance on the MMLU Benchmark\n\n## Summary\n\nGPT-4's accuracy on the MMLU benchmark varies significantly across reported sources, ranging from 64% to 90.2% depending on the model variant, evaluation methodology, and time period. The original GPT-4 achieved 86.4% accuracy in one documented evaluation [**\\[2\\]**](https://www.reddit.com/r/MachineLearning/comments/13e1rf9/d_since_google_buried_the_mmlu_benchmark_scores), while newer variants claim higher scores. However, substantial contradictions exist across sources regarding exact performance figures, and measurement variability has been documented as a significant concern for MMLU comparisons.\n\n## Key findings\n\n- GPT-4 achieved 86.4% accuracy on the MMLU benchmark in a 5-shot evaluation setting [**\\[2\\]**](https://www.reddit.com/r/MachineLearning/comments/13e1rf9/d_since_google_buried_the_mmlu_benchmark_scores)\n\n- OpenAI's GPT-4.1 claims a 90.2% score on the MMLU benchmark, positioning it above the human expert baseline [**\\[3\\]**](https://www.rdworldonline.com/openai-claims-gpt-4-1-sets-new-90-standard-in-mmlu-reasoning-benchmark)\n\n- Current top-performing language models achieve approximately 88% accuracy on MMLU, approaching the human expert baseline of 89.8% [**\\[5\\]**](https://galileo.ai/blog/mmlu-benchmark-ai-language-testing)\n\n- The MMLU benchmark comprises 57 subjects with 15,908 multiple-choice questions and has a documented 6.49% error rate and up to 13 percentage points of reproducibility variance across different measurement sources [**\\[4\\]**](https://www.narev.ai/blog/mmlu-doesnt-matter)[**\\[5\\]**](https://galileo.ai/blog/mmlu-benchmark-ai-language-testing)\n\n- GPT-4o's MMLU-Pro scores vary by 13 percentage points across different measurement sources, indicating significant inconsistency in benchmark reporting [**\\[4\\]**](https://www.narev.ai/blog/mmlu-doesnt-matter)\n\n## Contradictions & conflicts\n\n**Conflict 1 (High confidence):** Source [**\\[1\\]**](https://www.researchgate.net/figure/The-accuracy-of-ChatGPT-and-GPT-4-on-the-MMLU-and-GAT-benchmarks-MMLU-results-are-taken_tbl6_378633718) reports ChatGPT-4 achieved 64% overall average accuracy on MMLU and GAT benchmarks combined, while source [**\\[2\\]**](https://www.reddit.com/r/MachineLearning/comments/13e1rf9/d_since_google_buried_the_mmlu_benchmark_scores) reports GPT-4 achieved 86.4% on MMLU alone (5-shot). These claims are mutually inconsistent, as a combined average cannot fall below individual benchmark scores.\n\n**Conflict 2 (High confidence):** Source [**\\[1\\]**](https://www.researchgate.net/figure/The-accuracy-of-ChatGPT-and-GPT-4-on-the-MMLU-and-GAT-benchmarks-MMLU-results-are-taken_tbl6_378633718) reports 64% accuracy for ChatGPT-4 on MMLU/GAT benchmarks, while source [**\\[5\\]**](https://galileo.ai/blog/mmlu-benchmark-ai-language-testing) reports top models currently achieve approximately 88% accuracy on MMLU. If both sources reference the same model and benchmark, these figures are contradictory.\n\n**Conflict 3 (High confidence):** Source [**\\[3\\]**](https://www.rdworldonline.com/openai-claims-gpt-4-1-sets-new-90-standard-in-mmlu-reasoning-benchmark) claims GPT-4.1 achieved 90.2% on MMLU, while source [**\\[4\\]**](https://www.narev.ai/blog/mmlu-doesnt-matter) indicates GPT-5 (a later model) scored only 87.1% on comparable benchmarks. Successor models should not perform substantially worse on identical benchmarks.\n\n**Conflict 4 (Moderate confidence):** Source [**\\[3\\]**](https://www.rdworldonline.com/openai-claims-gpt-4-1-sets-new-90-standard-in-mmlu-reasoning-benchmark) reports GPT-4.1 achieved 90.2% accuracy on MMLU, while source [**\\[5\\]**](https://galileo.ai/blog/mmlu-benchmark-ai-language-testing) states top models currently achieve approximately 88% accuracy, representing a 2.2 percentage point discrepancy that cannot be explained by model variant differences alone.\n\n## Sources\n1. <a id=\"src-1\"></a>The accuracy of ChatGPT and GPT-4 on the MMLU and GAT benchmarks ... \u2014 https://www.researchgate.net/figure/The-accuracy-of-ChatGPT-and-GPT-4-on-the-MMLU-and-GAT-benchmarks-MMLU-results-are-taken_tbl6_378633718\n2. <a id=\"src-2\"></a>[D] Since Google buried the MMLU benchmark scores in the Appendix of the PALM 2 technical report, here it is vs GPT-4 and other LLMs \u2014 https://www.reddit.com/r/MachineLearning/comments/13e1rf9/d_since_google_buried_the_mmlu_benchmark_scores\n3. <a id=\"src-3\"></a>OpenAI says GPT-4.1 sets new 90%+ standard in MMLU reasoning benchmark \u2014 https://www.rdworldonline.com/openai-claims-gpt-4-1-sets-new-90-standard-in-mmlu-reasoning-benchmark\n4. <a id=\"src-4\"></a>GPT-4o vs Claude Opus - MMLU Scores vs. Actual API Costs - Narev Docs \u2014 https://www.narev.ai/blog/mmlu-doesnt-matter\n5. <a id=\"src-5\"></a>MMLU Benchmark: Testing AI Language Models \u2014 https://galileo.ai/blog/mmlu-benchmark-ai-language-testing\n"
+  },
+  {
+    "query": "Does chain-of-thought prompting improve LLM reasoning accuracy?",
+    "elapsed": 175.60743713378906,
+    "sources": [
+      {
+        "id": "web_0",
+        "origin": "web",
+        "url": "https://www.width.ai/post/chain-of-thought-prompting",
+        "title": "Chain-of-Thought Prompting \u2014 Improve Accuracy by Getting LLMs to Reason | Width.ai",
+        "summary": "Chain-of-thought (CoT) prompting is a prompt engineering technique that improves LLM accuracy on complex tasks by instructing models to generate intermediate reasoning steps. Kojima et al.'s 2022 zero-shot CoT approach uses the prompt 'Let's think step by step' followed by an answer extraction step, while Wei et al.'s earlier few-shot CoT method includes example question-answer pairs with reasoning chains.",
+        "claims": [
+          "Kojima et al. found that the prompt 'Let's think step by step' works best for triggering CoT reasoning in their 2022 paper 'Large Language Models are Zero-Shot Reasoners'",
+          "Zero-shot CoT outperforms baseline LLM performance especially in arithmetic and symbolic reasoning tasks",
+          "Wei et al. proposed few-shot CoT prompting first in their paper 'Chain-of-Thought Prompting Elicits Reasoning in Large Language Models' using example question-answer pairs with reasoning chains"
+        ]
+      },
+      {
+        "id": "web_1",
+        "origin": "web",
+        "url": "https://galileo.ai/blog/what-is-chain-of-thought-prompting-guide-improving-llm-reasoning",
+        "title": "What Is Chain-of-Thought Prompting? A Guide ...",
+        "summary": "Chain-of-thought prompting improves LLM reasoning by eliciting explicit logical steps from problem to solution. Zero-shot CoT shows up to 61 percentage point improvements on MultiArith, while simply adding 'Let's think step by step' dramatically improves reasoning without examples, though it requires models with 100 billion parameters or larger.",
+        "claims": [
+          "Zero-shot CoT demonstrates improvements of up to 61 percentage points on MultiArith",
+          "GPT-3 175B improved from 17.9% to 58.8% accuracy on GSM8K, a 40.9 percentage point improvement",
+          "CoT requires models with 100 billion parameters or larger",
+          "Clinical text understanding shows 86.3% model performance degradation with CoT",
+          "PaLM 540B showed a 17.4 percentage point gain on GSM8K benchmark, moving from 40.7% to 58.1% accuracy"
+        ]
+      },
+      {
+        "id": "web_2",
+        "origin": "web",
+        "url": "https://learnprompting.org/docs/intermediate/chain_of_thought",
+        "title": "Chain-of-Thought Prompting",
+        "summary": "Chain-of-Thought (CoT) Prompting is a technique that enhances large language model performance by encouraging them to articulate intermediate reasoning steps, making them more effective at complex tasks like math problems and symbolic manipulation. CoT is particularly beneficial for complex tasks and works best with larger models, though smaller models may perform worse.",
+        "claims": [
+          "Chain-of-Thought Prompting improves LLM performance by encouraging articulation of reasoning processes",
+          "CoT works best with larger models while smaller models may perform worse with this technique",
+          "CoT is particularly effective for complex tasks including math problems, commonsense reasoning, and symbolic manipulation"
+        ]
+      },
+      {
+        "id": "web_3",
+        "origin": "web",
+        "url": "https://www.ibm.com/think/topics/chain-of-thoughts",
+        "title": "What is chain of thought (CoT) prompting?",
+        "summary": "Chain of thought (CoT) prompting is a prompt engineering technique that enhances large language model outputs for complex multistep reasoning tasks by guiding models through step-by-step logical processes. Research shows that prompting models to generate intermediate reasoning steps significantly improves their ability to solve multistep problems involving arithmetic, common sense, and symbolic reasoning.",
+        "claims": [
+          "As LLM parameter size increased, reasoning ability and accuracy also increased",
+          "IBM Granite Instruct models are fine-tuned using specialized training datasets composed of instructional prompts and exemplars for CoT tasks",
+          "Instruction tuning advances have enabled smaller models to perform CoT reasoning without requiring increased model size"
+        ]
+      },
+      {
+        "id": "web_4",
+        "origin": "web",
+        "url": "https://cameronrwolfe.substack.com/p/chain-of-thought-prompting-for-llms",
+        "title": "Chain of Thought Prompting for LLMs",
+        "summary": "Chain of Thought (CoT) prompting is a technique that improves large language model performance on reasoning tasks by inserting example solutions paired with intermediate reasoning steps into prompts, enabling few-shot learning without task-specific fine-tuning. This approach significantly enhances LLM performance on reasoning-based benchmarks, particularly for larger models, using minimal data.",
+        "claims": [
+          "Chain of thought prompting requires no task-specific fine-tuning",
+          "Chain of thought prompting significantly improves LLM performance on reasoning-based benchmarks, especially for larger models",
+          "The Deep (Learning) Focus newsletter has over 4,000 subscribers from Microsoft, Tesla, Google, and Meta"
+        ]
+      }
+    ],
+    "contradictions": [
+      {
+        "source_a_id": "web_1",
+        "source_b_id": "web_2",
+        "claim_a": "CoT requires models with 100 billion parameters or larger",
+        "claim_b": "CoT works best with larger models while smaller models may perform worse with this technique",
+        "confidence": 0.95,
+        "explanation": "Claim A states CoT requires a minimum threshold of 100 billion parameters (absolute requirement), while Claim B states CoT works best with larger models but can work with smaller models (no minimum requirement), making these statements mutually incompatible."
+      },
+      {
+        "source_a_id": "web_1",
+        "source_b_id": "web_2",
+        "claim_a": "Clinical text understanding shows 86.3% model performance degradation with CoT",
+        "claim_b": "Chain-of-Thought Prompting improves LLM performance by encouraging articulation of reasoning processes",
+        "confidence": 0.95,
+        "explanation": "Claim A states CoT causes 86.3% performance degradation in clinical text understanding, while Claim B states CoT improves LLM performance; these cannot both be true for the same task as they describe opposite directional effects."
+      },
+      {
+        "source_a_id": "web_1",
+        "source_b_id": "web_3",
+        "claim_a": "CoT requires models with 100 billion parameters or larger",
+        "claim_b": "Instruction tuning advances have enabled smaller models to perform CoT reasoning without requiring increased model size",
+        "confidence": 0.95,
+        "explanation": "Claim A states CoT requires models with 100B+ parameters as a requirement, while Claim B directly contradicts this by stating smaller models can perform CoT reasoning without needing increased model size, making both statements mutually exclusive."
+      },
+      {
+        "source_a_id": "web_1",
+        "source_b_id": "web_4",
+        "claim_a": "Clinical text understanding shows 86.3% model performance degradation with CoT",
+        "claim_b": "Chain of thought prompting significantly improves LLM performance on reasoning-based benchmarks, especially for larger models",
+        "confidence": 0.95,
+        "explanation": "Claim A states CoT causes 86.3% performance degradation in clinical text understanding, while Claim B states CoT significantly improves LLM performance on reasoning benchmarks\u2014these directly oppose each other regarding whether CoT helps or hurts performance."
+      },
+      {
+        "source_a_id": "web_3",
+        "source_b_id": "web_4",
+        "claim_a": "IBM Granite Instruct models are fine-tuned using specialized training datasets composed of instructional prompts and exemplars for CoT tasks",
+        "claim_b": "Chain of thought prompting requires no task-specific fine-tuning",
+        "confidence": 0.95,
+        "explanation": "Claim A states that IBM Granite Instruct models ARE fine-tuned with specialized CoT datasets, while Claim B states that CoT prompting REQUIRES NO task-specific fine-tuning, which are mutually exclusive positions about whether fine-tuning is necessary for CoT."
+      }
+    ],
+    "report_markdown": "# Chain-of-Thought Prompting and LLM Reasoning Accuracy\n\n## Summary\n\nChain-of-thought (CoT) prompting improves large language model reasoning accuracy by instructing models to generate explicit intermediate reasoning steps before producing final answers. Research demonstrates significant performance improvements on complex reasoning tasks, with zero-shot CoT approaches showing gains of up to 61 percentage points on mathematical benchmarks. However, the sources contain substantial contradictions regarding model size requirements, applicability to different domains, and whether fine-tuning is necessary for effective CoT implementation.\n\n## Key findings\n\n- **CoT enhances reasoning on complex tasks**: Chain-of-thought prompting improves LLM performance on multistep reasoning problems involving arithmetic, common sense, and symbolic reasoning by encouraging articulation of intermediate logical steps [**\\[3\\]**](https://learnprompting.org/docs/intermediate/chain_of_thought), [**\\[4\\]**](https://www.ibm.com/think/topics/chain-of-thoughts).\n\n- **Zero-shot CoT demonstrates substantial improvements**: The zero-shot approach using the simple prompt \"Let's think step by step\" achieves up to 61 percentage point improvements on mathematical benchmarks like MultiArith without requiring example pairs [**\\[2\\]**](https://galileo.ai/blog/what-is-chain-of-thought-prompting-guide-improving-llm-reasoning).\n\n- **Two primary CoT methodologies exist**: Wei et al. developed few-shot CoT using example question-answer pairs with reasoning chains, while Kojima et al. (2022) introduced zero-shot CoT requiring only a directional prompt [**\\[1\\]**](https://www.width.ai/post/chain-of-thought-prompting).\n\n- **Model size appears relevant to performance**: CoT techniques work best with larger models, though claims about minimum size thresholds are contradicted across sources [**\\[2\\]**](https://galileo.ai/blog/what-is-chain-of-thought-prompting-guide-improving-llm-reasoning), [**\\[3\\]**](https://learnprompting.org/docs/intermediate/chain_of_thought), [**\\[5\\]**](https://cameronrwolfe.substack.com/p/chain-of-thought-prompting-for-llms).\n\n- **Minimal data requirements**: CoT enables performance improvements on reasoning benchmarks through few-shot learning without requiring task-specific fine-tuning [**\\[5\\]**](https://cameronrwolfe.substack.com/p/chain-of-thought-prompting-for-llms).\n\n## Contradictions & conflicts\n\n**Contradiction 1 \u2014 Model size requirements:**\n[**\\[2\\]**](https://galileo.ai/blog/what-is-chain-of-thought-prompting-guide-improving-llm-reasoning) claims CoT \"requires models with 100 billion parameters or larger,\" stating an absolute minimum threshold. In contrast, [**\\[3\\]**](https://learnprompting.org/docs/intermediate/chain_of_thought) states CoT \"works best with larger models, though smaller models may perform worse,\" which allows for smaller model applicability. Additionally, [**\\[4\\]**](https://www.ibm.com/think/topics/chain-of-thoughts) suggests that \"instruction tuning advances have enabled smaller models to perform CoT reasoning without requiring increased model size.\" These statements are mutually exclusive regarding whether CoT has a hard minimum parameter requirement.\n\n**Contradiction 2 \u2014 Clinical text understanding performance:**\n[**\\[2\\]**](https://galileo.ai/blog/what-is-chain-of-thought-prompting-guide-improving-llm-reasoning) claims \"clinical text understanding shows 86.3% model performance degradation with CoT,\" while [**\\[3\\]**](https://learnprompting.org/docs/intermediate/chain_of_thought) and [**\\[5\\]**](https://cameronrwolfe.substack.com/p/chain-of-thought-prompting-for-llms) state that CoT improves LLM performance on reasoning tasks. This represents a direct conflict regarding whether CoT helps or harms performance, with no indication that clinical text understanding should be treated as an exception.\n\n**Contradiction 3 \u2014 Fine-tuning necessity:**\n[**\\[4\\]**](https://www.ibm.com/think/topics/chain-of-thoughts) states that \"IBM Granite Instruct models are fine-tuned using specialized training datasets composed of instructional prompts and exemplars for CoT tasks,\" while [**\\[5\\]**](https://cameronrwolfe.substack.com/p/chain-of-thought-prompting-for-llms) claims that \"Chain of thought prompting requires no task-specific fine-tuning.\" These statements directly contradict whether fine-tuning is necessary or unnecessary for CoT implementation.\n\n## Sources\n1. <a id=\"src-1\"></a>Chain-of-Thought Prompting \u2014 Improve Accuracy by Getting LLMs to Reason | Width.ai \u2014 https://www.width.ai/post/chain-of-thought-prompting\n2. <a id=\"src-2\"></a>What Is Chain-of-Thought Prompting? A Guide ... \u2014 https://galileo.ai/blog/what-is-chain-of-thought-prompting-guide-improving-llm-reasoning\n3. <a id=\"src-3\"></a>Chain-of-Thought Prompting \u2014 https://learnprompting.org/docs/intermediate/chain_of_thought\n4. <a id=\"src-4\"></a>What is chain of thought (CoT) prompting? \u2014 https://www.ibm.com/think/topics/chain-of-thoughts\n5. <a id=\"src-5\"></a>Chain of Thought Prompting for LLMs \u2014 https://cameronrwolfe.substack.com/p/chain-of-thought-prompting-for-llms\n"
+  }
+]

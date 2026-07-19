@@ -26,13 +26,14 @@ def run_pdf_chunker(state: ResearchState) -> dict:
     capped     = full_text[:MAX_CHARS]
 
     chunks = [capped[i:i + CHUNK_SIZE] for i in range(0, len(capped), CHUNK_SIZE)]
+    filename = state.get("pdf_filename") or "uploaded.pdf"
 
     pdf_sources: list[Source] = [
         Source(
             id=f"pdf_{i}",
             origin="pdf",
-            url="uploaded.pdf",
-            title=f"Uploaded PDF — chunk {i + 1}",
+            url=filename,
+            title=filename,
             raw_text=chunk,
             summary="",
             claims=[],

@@ -9,6 +9,8 @@ import requests
 import importlib
 from types import ModuleType
 
+from pdf_export import markdown_report_to_pdf
+
 # sseclient can be installed as `sseclient-py`. Try to import it dynamically
 # and fall back to None so static analyzers don't error at runtime.
 try:
@@ -93,10 +95,25 @@ with st.sidebar:
         meta = AGENT_META[a]
         st.markdown(f"{meta['icon']} &nbsp; {meta['label']}")
 
+        if a == "report_builder":
+            report_markdown = (st.session_state.get("result") or {}).get("report_markdown", "")
+            st.download_button(
+                "Download report",
+                data=markdown_report_to_pdf(report_markdown) if report_markdown else b"",
+                file_name="deep_researcher_report.pdf",
+                mime="application/pdf",
+                icon=":material/download:",
+                disabled=not report_markdown,
+                width="stretch",
+            )
+
     st.caption("Powered by Claude · Tavily · LangGraph")
 
 # ── Header / hero ────────────────────────────────────────────────────────────
-st.title("Multi-agent deep researcher")
+st.markdown(
+    '<h1 style="font-size: 3.375rem; font-weight: 700; margin: 0;">Multi-agent deep researcher</h1>',
+    unsafe_allow_html=True,
+)
 st.caption("Ask a research question. Five specialized agents retrieve sources, extract claims, surface contradictions, and compile a cited report.")
 
 status_row = st.empty()
@@ -122,7 +139,10 @@ def render_pipeline_row(active: str | None, done: set):
                         st.badge(meta["label"], icon=":material/schedule:", color="gray")
                     st.caption(meta["detail"])
 
-render_pipeline_row(active=None, done=set())
+render_pipeline_row(
+    active=None,
+    done=set(AGENTS) if st.session_state.result else set(),
+)
 
 kpi_container = st.container()
 report_container = st.container()
@@ -133,7 +153,10 @@ def render_report(result: dict):
     with report_container:
         st.markdown("#### Report")
         with st.container(border=True):
-            st.markdown(result.get("report_markdown", "") or "_No report generated._")
+            st.markdown(
+                result.get("report_markdown", "") or "_No report generated._",
+                unsafe_allow_html=True,  # report includes our own <a id="src-N"> anchors for PDF citation jump-links
+            )
 
 
 def render_contradictions(contradictions: list):
@@ -156,7 +179,7 @@ def render_kpis(sources: list, contradictions: list, elapsed: float):
     top_confidence = max((c["confidence"] for c in contradictions), default=None)
     with kpi_container:
         kpi_cols = st.columns(4)
-        kpi_cols[0].metric("Confidence", f"{top_confidence:.0%}" if top_confidence is not None else "—")
+        kpi_cols[0].metric("Confidence", f"{top_confidence:.0%}" if top_confidence is not None else "100%")
         kpi_cols[1].metric("Sources analyzed", len(sources))
         kpi_cols[2].metric("Contradictions found", len(contradictions))
         kpi_cols[3].metric("Time to report", f"{elapsed:.1f}s")
@@ -190,7 +213,7 @@ if run and query:
             st.stop()
 
         data = {"query": query}
-        files = {"pdf": pdf.getvalue()} if pdf else {}
+        files = {"pdf": (pdf.name, pdf.getvalue())} if pdf else {}
         final_sources = []
         final_contradictions = []
         final_report = ""
@@ -227,6 +250,11 @@ if run and query:
             "contradictions": final_contradictions,
             "elapsed": time.time() - start_time,
         }
+
+    # Sidebar (incl. the download button) is drawn before this block runs each
+    # script pass, so it's rendering stale session_state. Rerun once now that
+    # the result is stored so the sidebar redraws with the button enabled.
+    st.rerun()
 
 # ── Render last result (persists across reruns) ──────────────────────────────
 if st.session_state.result:

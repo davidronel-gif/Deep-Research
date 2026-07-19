@@ -26,6 +26,7 @@ class Contradiction(TypedDict):
 class ResearchState(TypedDict):
     query: str
     pdf_bytes: bytes | None          # raw upload, None if no PDF
+    pdf_filename: str | None         # original filename of the upload, for display
     sources: list[Source]            # populated by Retriever + PDF chunker
     contradictions: list[Contradiction]  # populated by Critic
     report_markdown: str             # populated by Report Builder

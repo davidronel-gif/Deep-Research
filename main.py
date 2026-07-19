@@ -30,6 +30,7 @@ async def research(
     initial: ResearchState = {
         "query": query,
         "pdf_bytes": pdf_bytes,
+        "pdf_filename": pdf.filename if pdf else None,
         "sources": [],
         "contradictions": [],
         "report_markdown": "",

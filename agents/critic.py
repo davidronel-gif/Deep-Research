@@ -21,8 +21,8 @@ from llm_provider import create_chat_completion
 from state import ResearchState, Contradiction
 
 CONFIDENCE_THRESHOLD = 0.75  # raise to 0.85 if too many false positives
-MAX_SOURCES = 4                 # keep the judge workload bounded
-MAX_CLAIMS_PER_SOURCE = 2       # compare only the strongest top-2 claims per source
+MAX_SOURCES = 6                 # keep the judge workload bounded
+MAX_CLAIMS_PER_SOURCE = 4       # compare only the strongest top claims per source
 
 JUDGE_PROMPT = """You are a strict fact-checker comparing two claims from different research sources.
 

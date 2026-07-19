@@ -8,3 +8,4 @@ streamlit
 sseclient-py
 python-multipart
 requests
+reportlab
