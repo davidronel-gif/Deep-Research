@@ -18,7 +18,7 @@ try:
 except Exception:
     sseclient = None
 
-API_URL   = "https://deep-research-backend-6p6m.onrender.com"
+API_URL   = "https://deep-research-backend-6p6m.onrender.com/research"
 #API_URL   = "http://localhost:8000/research"
 MOCK_MODE = False  # set True at hour 0, flip to False at hour 5
 
